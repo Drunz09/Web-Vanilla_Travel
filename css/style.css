@@ -30,19 +30,21 @@ body {
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   border-bottom: 2px solid #b1b1b1;
-  padding: 1em;
+  padding: 1.1em 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  transition: all 0.6s ease-in;
 }
 
 nav.active {
-  background-color: #0a0a0a;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -88,13 +90,6 @@ nav.active {
   display: inline-block;
   opacity: 0;
   height: 0;
-  width: 0;
-  transition: all 0.3s ease-in;
-}
-
-.search input.active {
-  opacity: 1;
-  height: 100%;
   width: 100%;
   padding: 0.5em;
   border-radius: 10px;
@@ -103,6 +98,12 @@ nav.active {
   outline-color: var(--textGreen);
   margin-right: 3px;
   background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.search input.active {
+  opacity: 1;
+  height: 100%;
 }
 
 .search img {
@@ -164,7 +165,7 @@ nav.active {
   text-transform: uppercase;
   border: 1px solid #fff;
   border-radius: 5px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease-in-out;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
@@ -172,7 +173,6 @@ nav.active {
 .hero a:hover {
   background-color: var(--textGreen);
   text-shadow: none;
-  font-weight: 600;
 }
 
 /* Main */
@@ -192,12 +192,12 @@ nav.active {
 
 #About h3::after {
   content: "";
-  width: 100px;
-  height: 6px;
-  border-radius: 10px;
+  width: 65px;
+  height: 5px;
+  border-radius: 5px;
   background-color: var(--textGreen);
   text-align: center;
-  margin-top: 0.3em;
+  margin-top: 0.2em;
   margin-bottom: 0.6em;
 }
 
@@ -241,11 +241,11 @@ nav.active {
 .support-head h4::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 45px;
   height: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: var(--textGreen);
-  margin: 5px auto 10px auto;
+  margin: 4px auto 15px auto;
 }
 
 .support-head p {
@@ -257,7 +257,7 @@ nav.active {
 
 /* Explore */
 #Explore {
-  margin: 5em 4em;
+  margin: 4em;
   padding-top: 5em;
 }
 
@@ -270,9 +270,9 @@ nav.active {
 .up h3::after {
   content: "";
   display: block;
-  width: 125px;
-  height: 6px;
-  border-radius: 10px;
+  width: 78px;
+  height: 5px;
+  border-radius: 5px;
   background-color: var(--textGreen);
   margin: auto;
   margin-top: 0.3em;
@@ -353,13 +353,13 @@ nav.active {
   margin: 4em 4em;
   padding-top: 5em;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 
 .hotel-head {
-  margin-right: 4em;
   text-align: center;
+  flex-basis: 15%;
 }
 
 .hotel-head h3 {
@@ -371,8 +371,9 @@ nav.active {
 .hotel-head h3::after {
   content: "";
   display: block;
-  width: 50px;
+  width: 47px;
   height: 5px;
+  border-radius: 5px;
   background-color: var(--textGreen);
   text-align: center;
   margin: 0.3em auto 0.5em auto;
@@ -384,29 +385,31 @@ nav.active {
 }
 
 .hotel-body {
-  overflow-x: scroll;
+  overflow: hidden;
   display: flex;
-  gap: 1em;
-  padding-bottom: 2em;
+  gap: 0.2em;
+  padding: 1em;
 }
 
 .body-m {
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: all 0.8s ease-in-out;
 }
 
 .body-m:hover img {
-  transform: scale(105%);
+  transform: scale(110%);
 }
 
 .body-m img {
-  width: 500px;
+  width: 300px;
   height: 300px;
-  border-radius: 8px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-out;
 }
 
@@ -415,7 +418,7 @@ nav.active {
   font-size: 3em;
   font-weight: 500;
   color: var(--textWhite);
-  text-shadow: rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Gallery */
@@ -428,13 +431,14 @@ nav.active {
 }
 
 .gallery-head {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  position: relative;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .gallery-head img {
@@ -457,7 +461,7 @@ nav.active {
 }
 
 #Contacts {
-  margin: 5em 0;
+  margin: 3em 0;
   padding: 5em 0;
 }
 
@@ -472,14 +476,15 @@ nav.active {
   display: block;
   width: 80px;
   height: 5px;
+  border-radius: 5px;
   background-color: var(--textGreen);
   margin: auto;
-  margin-top: 0.3em;
+  margin-top: 0.2em;
   margin-bottom: 0.5em;
 }
 
 .contact-body {
-  margin: 5em;
+  margin: 4em 5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
   justify-content: center;
@@ -490,9 +495,10 @@ nav.active {
 .contact-left img {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
   object-fit: cover;
+  filter: grayscale(0.6);
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .contact-right {
@@ -543,6 +549,7 @@ nav.active {
   border-radius: 10px;
   background-color: var(--textGreen);
   transition: all 0.3s ease-in;
+  border: 2px solid rgb(21, 121, 29);
 }
 
 .contact-right form button:hover {
@@ -624,8 +631,9 @@ footer {
 
 .footer-right input {
   padding: 0.8em;
-  margin-bottom: 0.4em;
-  border-radius: 10px;
+  margin-bottom: 0.3em;
+  border-radius: 8px;
+  border: none;
 }
 
 .footer-right input:hover {
@@ -639,12 +647,13 @@ footer {
 }
 
 .footer-right button {
-  padding: 0.5em;
   background-color: var(--textGreen);
-  border: none;
-  transition: all 0.3s ease-in;
-  width: 98%;
   margin: 0 auto 1.5em auto;
+  padding: 0.5em;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
 }
 
 .footer-right button:hover {
@@ -661,9 +670,7 @@ footer {
 
   .logo {
     order: 1;
-    width: 50%;
-    text-align: end;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
   }
 
   .menu {
@@ -672,13 +679,11 @@ footer {
 
   .search {
     order: 2;
-    flex-basis: 50%;
-    justify-content: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
   }
 
   .search input.active {
-    width: 30%;
+    width: 75%;
   }
 
   .hero h2 {
@@ -689,6 +694,18 @@ footer {
   .hero p {
     font-size: 1.4em;
     max-width: 60%;
+  }
+
+  .body-m:hover {
+    padding: 0 4em;
+  }
+
+  .body-m:hover img {
+    transform: scale(100%);
+  }
+
+  .body-m h4 {
+    font-size: 2.3em;
   }
 }
 
@@ -787,13 +804,17 @@ footer {
     font-weight: 500;
   }
 
-  .body-m img {
-    height: 300px;
-    width: 200px;
+  .body-m:hover {
+    padding: 0 5em;
   }
 
   .body-m h4 {
-    display: none;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .body-m:hover h4 {
+    opacity: 1;
   }
 
   .contact-body {
